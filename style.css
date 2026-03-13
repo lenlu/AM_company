@@ -2322,3 +2322,73 @@ box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
   border-radius: 50%;
   font-size: 12px;
 }
+
+/* Privacy page styles */
+.glass.reveal {
+    max-width: 1000px;
+    margin: 140px auto 60px;
+    padding: 32px;
+}
+
+main h1 {
+    margin-bottom: 12px;
+}
+
+.hero-subtitle {
+    margin-bottom: 28px;
+}
+
+main section {
+    margin-bottom: 24px;
+}
+
+main ul {
+    margin-left: 18px;
+}
+
+/* Index page SVG styles */
+.feature-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.hexagon-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.brain-gradient {
+    fill: url(#brainGradient);
+}
+
+.bolt-gradient {
+    fill: url(#boltGradient);
+}
+
+.building-gradient {
+    fill: url(#buildingGradient);
+}
+
+.crystal-gradient {
+    fill: url(#crystalGradient);
+}
+
+.shield-gradient {
+    fill: url(#shieldGradient);
+}
+
+.rocket-gradient {
+    fill: url(#rocketGradient);
+}
+
+.diamond-gradient {
+    fill: url(#diamondGradient);
+}
+
+.target-gradient {
+    fill: url(#targetGradient);
+}
+
+.star-gradient {
+    fill: url(#starGradient);
+}
