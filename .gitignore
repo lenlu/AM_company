@@ -1,0 +1,6 @@
+# AM-COMPANY Git Ignore
+.env
+*.log
+.DS_Store
+dist/
+build/

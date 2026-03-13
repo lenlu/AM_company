@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Manisha-A</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="otp_style.css">
+    <style>
+        .login-page-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 450px;
+            padding: 50px 40px;
+            text-align: center;
+            animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .login-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #e0a3ff, #ff69b4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .login-header p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .input-wrapper label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #e0a3ff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .login-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(224, 163, 255, 0.2);
+            padding: 16px 20px;
+            border-radius: 14px;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .login-input:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #ff69b4;
+            box-shadow: 0 0 20px rgba(224, 163, 255, 0.2);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #e0a3ff, #ff69b4);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 10px 25px rgba(224, 163, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(224, 163, 255, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #otp-section {
+            display: none;
+            margin-top: 30px;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .status-msg {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            min-height: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="am-background"></div>
+    <div class="geometric-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+
+    <div class="login-page-container">
+        <div class="login-card glass-strong">
+            <div class="login-header">
+                <h2>PORTAL LOGIN</h2>
+                <p>Verify your digital identity to access the command center.</p>
+            </div>
+
+            <div id="email-section">
+                <div class="input-wrapper">
+                    <label>Email</label>
+                    <input type="email" id="login-email" class="login-input" placeholder="id@manisha-a.com">
+                </div>
+                <button id="send-login-otp" class="login-btn">Initialize Verification</button>
+                <p id="switch-to-admin" style="margin-top: 20px; font-size: 0.8rem; color: #e0a3ff; cursor: pointer; text-decoration: underline;">Admin Portal Access</p>
+            </div>
+
+            <div id="admin-section" style="display: none;">
+                <div class="input-wrapper">
+                    <label>Admin Username</label>
+                    <input type="text" id="admin-user" class="login-input" placeholder="Enter username">
+                </div>
+                <div class="input-wrapper">
+                    <label>Password</label>
+                    <input type="password" id="admin-pass" class="login-input" placeholder="••••••••">
+                </div>
+                <button id="admin-login-btn" class="login-btn">Authorize Admin Access</button>
+                <p id="switch-to-user" style="margin-top: 20px; font-size: 0.8rem; color: #ff69b4; cursor: pointer; text-decoration: underline;">User Transmission Sync</p>
+            </div>
+
+            <div id="otp-section">
+                <div class="input-wrapper">
+                    <label>Enter 6-Digit Transmission Code</label>
+                    <div class="otp-input-group">
+                        <input type="text" class="otp-input login-otp-field" maxlength="1">
+                        <input type="text" class="otp-input login-otp-field" maxlength="1">
+                        <input type="text" class="otp-input login-otp-field" maxlength="1">
+                        <input type="text" class="otp-input login-otp-field" maxlength="1">
+                        <input type="text" class="otp-input login-otp-field" maxlength="1">
+                        <input type="text" class="otp-input login-otp-field" maxlength="1">
+                    </div>
+                </div>
+                <button id="verify-login-otp" class="login-btn">Establish Link</button>
+                <p id="resend-login-otp" style="margin-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.4); cursor: pointer; transition: color 0.3s;">Didn't receive code? Resend Signal</p>
+            </div>
+
+            <p id="login-status" class="status-msg"></p>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
